@@ -1,31 +1,51 @@
- Hi, I'm Harshali Shewale 👋
+# Tkinter Billing System
 
-Aspiring Software Developer
+This is a full Python `tkinter` migration of the original Java Swing billing project, rebuilt to use `sqlite3` instead of Microsoft Access.
 
-Welcome to my GitHub profile!
+## Features
 
- About Me
-- 🎓 Computer Science Graduate
-- 💻 Interested in software development
-- 🌱 Learning Java, Python, SQL and Git
-- ☁️ Exploring cloud computing
-- 🚀 Building projects to improve my technical skills
+- Login screen
+- Dashboard with counts and report exports
+- Customer add, edit, search, delete
+- Item add, edit, search, delete
+- Billing with customer selection, item search, cart, tax, totals, save
+- Bill history with line-item view
+- PDF export for invoices, customer report, item report, and sales report
+- Settings to change username and password
 
- Technical Skills
-- Programming: Java, Python, C
-- Database: MySQL, SQL
-- Web Technologies: HTML, CSS, Bootstrap
-- Tools: Git, GitHub, VS Code
+## Database Choice
 
- Projects
-- Inventory and Billing System
-- Cafe Management Website
+This app uses `SQLite`, which is the best fit for this project because:
 
- Career Goal
-To begin my career in the IT industry and grow as a software developer.
+- it ships with Python
+- it needs no server setup
+- it works well for a desktop inventory and billing application
+- it is much easier to deploy than Access on macOS
 
- Connect With Me
-- LinkedIn: www.linkedin.com/in/harshali-shewale-755082374
-- Email:harshalishewale28@gmail.com
+The database file is created automatically here:
 
-Thank you for visiting my profile! 😊
+`data/billing_system.db`
+
+Default login:
+
+- Username: `admin`
+- Password: `admin`
+
+## Run
+
+From the project root:
+
+```bash
+/opt/homebrew/bin/python3 -m venv .venv
+source .venv/bin/activate
+pip install -r tkinter_billing_system/requirements.txt
+python tkinter_billing_system/app.py
+```
+
+## Project Layout
+
+- `tkinter_billing_system/app.py` - main tkinter application
+- `tkinter_billing_system/tkinter_billing_system/database.py` - sqlite schema and data access
+- `tkinter_billing_system/tkinter_billing_system/reports.py` - PDF export helpers
+- `tkinter_billing_system/data/` - generated SQLite database
+- `tkinter_billing_system/exports/` - exported PDF files
